@@ -1,16 +1,7 @@
 A PyTorch implementation of the BI-LSTM-CRF model.
 
-# Features:
-- Compared with [PyTorch BI-LSTM-CRF tutorial][1], following improvements are performed:
-    - Full support for mini-batch computation
-    - Full vectorized implementation. Specially, removing all loops in "score sentence" algorithm, which dramatically improve training performance
-    - CUDA supported
-    - Very simple APIs for [CRF module](#CRF)
-        - START/STOP tags are automatically added in CRF
-        - A inner Linear Layer is included which transform from feature space to tag space
-- Specialized for NLP sequence tagging tasks
-- Easy to train your own sequence tagging models
-- MIT License
+- Compared with [PyTorch BI-LSTM-CRF][1], following changes are performed:
+- In the original implementation tag token indices start from '0'. '0' is also used for padding token <PAD>. This can make for erroneous training. This error is fixed by adding an appropriate unused token for padding tags sequences. 
 
 # Installation
 - dependencies
@@ -44,19 +35,6 @@ df[["train_loss", "val_loss"]].ffill().plot(grid=True)
 plt.show()
 ```
 
-# Prediction
-```python
-from bi_lstm_crf.app import WordsTagger
-
-model = WordsTagger(model_dir="xxx")
-tags, sequences = model(["市领导到成都..."])  # CHAR-based model
-print(tags)  
-# [["B", "B", "I", "B", "B-LOC", "I-LOC", "I-LOC", "I-LOC", "I-LOC", "B", "I", "B", "I"]]
-print(sequences)
-# [['市', '领导', '到', ('成都', 'LOC'), ...]]
-
-# model([["市", "领导", "到", "成都", ...]])  # WORD-based model
-```
 
 # <a id="CRF">CRF Module
 The CRF module can be easily embeded into other models:
