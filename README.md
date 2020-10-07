@@ -73,15 +73,3 @@ class BertCrf(nn.Module):
 [6]:https://arxiv.org/abs/1508.01991
 [7]:https://github.com/jidasheng/bi-lstm-crf/wiki/details-of-model_dir
 
-
-How to train: ICEWS
-python -m bi_lstm_crf bi_lstm_crf/app/icews_corpus
-
-Prediction: (From '/home/sudo777/EE/' directory)
-python bi_lstm_crf/predict.py --sentence "to condemn the barbaric killing of farkhunda and call for justice, thousands of people from all walks of life staged a peaceful demonstration in front of the afghanistan supreme court on tuesday, demanding the apex court bring to justice all those involved in the brutal murder of the girl." --model_dir model_dir/
-
-
-TWITCH 
-python -m bi_lstm_crf bi_lstm_crf/app/twitch_corpus --model_dir twitch_model --num_epoch 40
-
-python bi_lstm_crf/predict.py --model_dir twitch_model
