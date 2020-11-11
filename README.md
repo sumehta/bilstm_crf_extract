@@ -1,3 +1,5 @@
+## Note: A notebook will be added soon detailing the usage
+
 A PyTorch implementation of the BI-LSTM-CRF model.
 
 - Compared with [PyTorch BI-LSTM-CRF][1], following changes are made:
