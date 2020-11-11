@@ -1,4 +1,4 @@
-## Note: A notebook will be added soon detailing the usage
+###### Note: A notebook will be added soon detailing the usage
 
 A PyTorch implementation of the BI-LSTM-CRF model.
 
