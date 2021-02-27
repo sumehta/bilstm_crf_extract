@@ -1,6 +1,6 @@
 ###### Note: A notebook will be added soon detailing the usage
 
-# A PyTorch implementation of the Bi-LSTM-CRF model.
+# Bi-LSTM-CRF usinf PyTorch
 
 - Compared with [PyTorch BI-LSTM-CRF][1], following changes are made:
 - In the original implementation tag token indices start from '0'. '0' is also used for padding token. This leads to '0' token for both padding and a dictionary token while tokenizing the tag sequences. This can make for erroneous training. This error is fixed by adding an appropriate unused token for padding tags sequences. 
